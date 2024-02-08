@@ -478,6 +478,10 @@ class ProductsModel:
             versions = versions_by_product_id[product_id]
             if not versions:
                 continue
+
+            if product["data"].get("archived") is True:
+                continue
+            
             product_item = product_item_from_entity(
                 product,
                 versions,
